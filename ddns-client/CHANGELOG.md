@@ -1,4 +1,7 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 0.2.2
+- bump HA image to 3.18
+
 ## 0.2.1
 
 - bump ddns-client version

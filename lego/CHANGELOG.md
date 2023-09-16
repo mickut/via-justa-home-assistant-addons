@@ -1,4 +1,10 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+
+## 0.6.0
+- Support SAN certificates
+- Bump lego version to v4.14.0
+- Bump HA base images to v3.18
+
 ## 0.5.0
 ### Others
 - Bump lego version to v4.6.0

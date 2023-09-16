@@ -16,6 +16,7 @@
 
 ## Features
 - Create/renew certificates for multiple domains
+- Supports SANs for multiple names on single certificate
 - supports both ACME HTTP and DNS-01 challenges with [~100 different DNS providers](https://go-acme.github.io/lego/dns/)
 - Optional Auto restart of Home-Assistant on certificate renewal
 - Optional Auto restart of given Addons on certificate renewal
