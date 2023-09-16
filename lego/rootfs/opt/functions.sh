@@ -12,9 +12,9 @@ config() {
 env_export() {
     len=$((${#2} - 3))
     str=""
-	for i in $(seq ${len}); do str=${str}*; done
+    for i in $(seq ${len}); do str=${str}*; done
     sanitized_value=${str}$(echo ${2} | grep -o ...$)
-
+    
     bashio::log.debug "Setting ${1} to ${sanitized_value}"
     export "${1}=${2}"
 }
@@ -31,7 +31,7 @@ update() {
         for san in ${sans[@]}; do
             args="${args} -d ${san}"
         done
-
+        
         if [[ -f "${CERT_PATH}/certificates/${sans[0]//[*]/_}.crt" ]]; then
             bashio::log.info "Certificate for domain ${sans[0]} found, checking if renew needed"
             if $(bashio::config 'restart'); then

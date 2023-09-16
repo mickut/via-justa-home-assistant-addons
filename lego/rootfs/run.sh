@@ -45,14 +45,13 @@ bashio::log.debug "config::addons $(bashio::config 'addons')"
 for var in $(bashio::config 'env_vars|keys'); do
     name=$(bashio::config "env_vars[${var}].name")
     value=$(bashio::config "env_vars[${var}].value")
-
+    
     env_export ${name} ${value}
 done
 
 bashio::log.info "using challenge ${challenge}"
 
 args="--accept-tos --email $(bashio::config 'email') --path ${CERT_PATH}"
-
 
 # Log domain list
 for domain in $(bashio::config 'domains'); do
