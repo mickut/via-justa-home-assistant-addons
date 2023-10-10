@@ -1,4 +1,6 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 0.6.1
+- Fix bug on multi-domain renewal command line construction
 
 ## 0.6.0
 - Support SAN certificates

@@ -24,22 +24,23 @@ get_tz() {
 }
 
 update() {
+    args="${@}"
     for domain in $(bashio::config 'domains'); do
         bashio::log.debug "checking domain ${domain}"
-        args="${@}"
+        domainargs=$args
         sans=(${domain//,/ })
         for san in ${sans[@]}; do
-            args="${args} -d ${san}"
+            domainargs="${domainargs} -d ${san}"
         done
         
         if [[ -f "${CERT_PATH}/certificates/${sans[0]//[*]/_}.crt" ]]; then
             bashio::log.info "Certificate for domain ${sans[0]} found, checking if renew needed"
             if $(bashio::config 'restart'); then
-                bashio::log.debug "running command: lego ${args} renew --days ${renew_threshold} --renew-hook /opt/restart_ha_hook.sh"
-                lego ${args} renew --days ${renew_threshold} --renew-hook /opt/restart_ha_hook.sh
+                bashio::log.debug "running command: lego ${domainargs} renew --days ${renew_threshold} --renew-hook /opt/restart_ha_hook.sh"
+                lego ${domainargs} renew --days ${renew_threshold} --renew-hook /opt/restart_ha_hook.sh
             else
-                bashio::log.debug "running command: lego ${args} renew --days ${renew_threshold}"
-                lego ${args} renew --days ${renew_threshold}
+                bashio::log.debug "running command: lego ${domainargs} renew --days ${renew_threshold}"
+                lego ${domainargs} renew --days ${renew_threshold}
                 bashio::log.info "Certificate for domain ${domain} was renewed, manual restart of Home-Assistant is required"
             fi
         else

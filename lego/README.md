@@ -12,7 +12,7 @@
 [armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
 
-[Logo](https://github.com/go-acme/lego) is a Let's Encrypt client and ACME library written in Go.
+[Lego](https://github.com/go-acme/lego) is a Let's Encrypt client and ACME library written in Go.
 
 ## Features
 - Create/renew certificates for multiple domains
