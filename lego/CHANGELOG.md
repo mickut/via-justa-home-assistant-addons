@@ -1,5 +1,5 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
-## 0.6.2.1
+## 0.6.3
  - fix typo
 
 ## 0.6.2
