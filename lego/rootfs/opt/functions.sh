@@ -20,7 +20,7 @@ env_export() {
     fi
     
     bashio::log.debug "Setting ${1} to ${sanitized_value}"
-    export "${1}=${sanitized_value}"
+    export "${1}=${2}"
 }
 
 get_tz() {

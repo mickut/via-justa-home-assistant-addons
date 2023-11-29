@@ -12,6 +12,7 @@ declare args
 declare challenge
 declare renew_threshold
 declare log_level
+declare dns_resolver
 
 ## defaults
 # set log.level
@@ -36,7 +37,7 @@ check_time=$(config check_time "04:00")
 bashio::log.debug "config::check_time ${check_time}"
 
 # set dns_resolver
-dns_resolver=$(config dnsresolver "8.8.8.8:53")
+dns_resolver=$(config dnsresolver "")
 bashio::log.debug "config::dnsresolver ${dns_resolver}"
 
 bashio::log.debug "config::provider $(bashio::config 'provider')"
@@ -65,7 +66,10 @@ done
 
 # select challenge
 if [ "${challenge}" == "dns" ]; then
-    args="${args} --dns $(bashio::config 'provider') --dns.resolvers ${dns_resolver}"
+    args="${args} --dns $(bashio::config 'provider')"
+    if [ "${dns_resolver}" != "" ]; then
+        args="${args} --dns.resolvers ${dns_resolver}"
+    fi
 else
     args="${args} --http"
 fi
