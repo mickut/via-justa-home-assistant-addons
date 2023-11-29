@@ -37,7 +37,7 @@ bashio::log.debug "config::check_time ${check_time}"
 
 # set dns_resolver
 dns_resolver=$(config dnsresolver "8.8.8.8:53")
-bashio::log.debug "config::dnsresolver ${dnsresolver}"
+bashio::log.debug "config::dnsresolver ${dns_resolver}"
 
 bashio::log.debug "config::provider $(bashio::config 'provider')"
 bashio::log.debug "config::domains $(bashio::config 'domains')"
