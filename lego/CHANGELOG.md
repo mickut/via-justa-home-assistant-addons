@@ -1,7 +1,7 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
-## 0.6.4
+## 0.6.5
  - fix env var expansion for numeric values
- - add dnsresolver option, default value 8.8.8.8
+ - add dnsresolver optional parameter
 
 ## 0.6.1
 - Fix bug on multi-domain renewal command line construction
