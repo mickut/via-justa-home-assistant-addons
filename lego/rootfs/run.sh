@@ -35,6 +35,10 @@ bashio::log.debug "config::renew_threshold ${renew_threshold} days"
 check_time=$(config check_time "04:00")
 bashio::log.debug "config::check_time ${check_time}"
 
+# set dns_resolver
+dns_resolver=$(config dnsresolver "8.8.8.8:53")
+bashio::log.debug "config::dnsresolver $(bashio::config ${dnsresolver}"
+
 bashio::log.debug "config::provider $(bashio::config 'provider')"
 bashio::log.debug "config::domains $(bashio::config 'domains')"
 bashio::log.debug "config::email $(bashio::config 'email')"
@@ -61,7 +65,7 @@ done
 
 # select challenge
 if [ "${challenge}" == "dns" ]; then
-    args="${args} --dns $(bashio::config 'provider')"
+    args="${args} --dns $(bashio::config 'provider') --dns.resolvers ${dns_resolver}"
 else
     args="${args} --http"
 fi

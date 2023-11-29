@@ -12,11 +12,15 @@ config() {
 env_export() {
     len=$((${#2} - 3))
     str=""
-    for i in $(seq ${len}); do str=${str}*; done
-    sanitized_value=${str}$(echo ${2} | grep -o ...$)
+    if [[ $2 =~ ^[0-9]+$ ]]; then
+        sanitized_value=$2
+    else
+        for i in $(seq ${len}); do str=${str}*; done
+        sanitized_value=${str}$(echo ${2} | grep -o ...$)
+    fi
     
     bashio::log.debug "Setting ${1} to ${sanitized_value}"
-    export "${1}=${2}"
+    export "${1}=${sanitized_value}"
 }
 
 get_tz() {
