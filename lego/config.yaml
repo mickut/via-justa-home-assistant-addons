@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Lego
-version: "0.6.1"
+version: "0.6.2"
 stage: experimental
 slug: lego
 description: Let's Encrypt client and ACME library written in Go.
@@ -20,9 +20,9 @@ arch:
   - i386
 init: false
 options:
-  provider: ""
+  provider: null
   domains: []
-  email: ""
+  email: null
   restart: true
   env_vars:
     - name: ""
@@ -36,8 +36,9 @@ schema:
   check_time: match(^\d\d\:\d\d$)?
   env_vars:
     - name: match(^([A-Z0-9_])+$)
-      value: str
+      value: match(^.+$)
   challenge: list(dns|http)?
+  dnsresolver: str?
   addons:
     - str?
   renew_threshold: int?
