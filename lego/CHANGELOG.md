@@ -1,4 +1,7 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 0.6.6
+ - trigger update check on launch
+
 ## 0.6.5
  - fix env var expansion for numeric values
  - add dnsresolver optional parameter
