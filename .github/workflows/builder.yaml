@@ -52,7 +52,7 @@ jobs:
           if [[ -n ${changed} ]]; then
             echo "Changed add-ons: $changed";
             echo "changed=true" >> $GITHUB_OUTPUT;
-            echo "addons=[$changed]" >> $GITHUB_ENV;
+            echo "addons=[$changed]" >> $GITHUB_OUTPUT;
           else
             echo "No add-on had any monitored files changed (${{ env.MONITORED_FILES }})";
           fi
@@ -81,9 +81,9 @@ jobs:
         run: |
           if [[ "${{ steps.info.outputs.architectures }}" =~ ${{ matrix.arch }} ]]; then
               echo "build_arch=true" >> $GITHUB_OUTPUT;
-             echo "image=$(echo ${{ steps.info.outputs.image }} | cut -d'/' -f3)" >> $GITHUB_ENV;
+             echo "image=$(echo ${{ steps.info.outputs.image }} | cut -d'/' -f3)" >> $GITHUB_OUTPUT;
              if [[ -z "${{ github.head_ref }}" ]] && [[ "${{ github.event_name }}" == "push" ]]; then
-                 echo "BUILD_ARGS=" >> $GITHUB_ENV;
+                 echo "BUILD_ARGS=" >> $GITHUB_OUTPUT;
              fi
            else
              echo "${{ matrix.arch }} is not a valid arch for ${{ matrix.addon }}, skipping build";
