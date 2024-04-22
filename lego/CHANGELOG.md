@@ -1,6 +1,11 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+
 ## 0.6.6
- - trigger update check on launch
+ - Trigger update check on launch
+ - Bump lego to 4.16.1
+ - Bump HA base iamges to v3.19
+ - Update github actions to node-20
+    - jitterbit/get-changed-files@v1 --> tj-actions/changed-files@v44
 
 ## 0.6.5
  - fix env var expansion for numeric values
