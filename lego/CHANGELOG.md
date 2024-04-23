@@ -1,5 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 0.6.7
+ - Simplify sleep duration for busybox date command.
+
 ## 0.6.6
  - Trigger update check on launch
  - Bump lego to 4.16.1

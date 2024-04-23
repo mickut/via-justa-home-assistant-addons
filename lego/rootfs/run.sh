@@ -91,24 +91,15 @@ for domain in $(bashio::config 'domains'); do
     fi    
 done
 
-
 while true
 do
     # check if certificate needs to be renewed
     update ${args}
 
     # Calculate the sleep duration until the next check_time
-    current_time=$(date +"%H:%M")
-    check_time_hour=$(echo "$check_time" | cut -d':' -f1)
-    check_time_minute=$(echo "$check_time" | cut -d':' -f2)
-
-    if [[ "$current_time" > "$check_time" ]]; then
-        next_check_time=$(date -d "+1 day $check_time" +"%s")
-    else
-        next_check_time=$(date -d "today $check_time" +"%s")
-    fi
-
+    next_check_time=$(date -d "$check_time" +"%s")
     current_time=$(date +"%s")
+
     sleep_duration=$((next_check_time - current_time))
     if [[ $sleep_duration -lt 0 ]]; then
         sleep_duration=$((sleep_duration + 86400)) # Add one day (86400 seconds)
