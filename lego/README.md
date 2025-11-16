@@ -15,6 +15,7 @@
 [Lego](https://github.com/go-acme/lego) is a Let's Encrypt client and ACME library written in Go.
 
 ## Features
+
 - Create/renew certificates for multiple domains
 - Supports SANs for multiple names on single certificate
 - supports both ACME HTTP and DNS-01 challenges with [~100 different DNS providers](https://go-acme.github.io/lego/dns/)

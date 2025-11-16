@@ -1,47 +1,62 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 0.6.8
+
+- Bump lego to 4.28.1
+- Bump HA base images to v3.22
 
 ## 0.6.7
- - Simplify sleep duration for busybox date command.
+
+- Simplify sleep duration for busybox date command.
 
 ## 0.6.6
- - Trigger update check on launch
- - Bump lego to 4.16.1
- - Bump HA base iamges to v3.19
- - Update github actions to node-20
-    - jitterbit/get-changed-files@v1 --> tj-actions/changed-files@v44
+
+- Trigger update check on launch
+- Bump lego to 4.16.1
+- Bump HA base images to v3.19
+- Update github actions to node-20
+  - jitterbit/get-changed-files@v1 --> tj-actions/changed-files@v44
 
 ## 0.6.5
- - fix env var expansion for numeric values
- - add dnsresolver optional parameter
+
+- fix env var expansion for numeric values
+- add dnsresolver optional parameter
 
 ## 0.6.1
+
 - Fix bug on multi-domain renewal command line construction
 
 ## 0.6.0
+
 - Support SAN certificates
 - Bump lego version to v4.14.0
 - Bump HA base images to v3.18
 
 ## 0.5.0
+
 ### Others
+
 - Bump lego version to v4.6.0
 
 ## 0.4.0
 
 ### New features
+
 - optional restart of addons after certificate update
 
 ### Bug fix
+
 - fix HA restart hook
 
 ### Improvements
+
 - make option `check_time` optional
 - make restart of HA core optional
 
 ## 0.3.2
 
 ### Bug fix
-- fix installed versions of lego per distribution 
+
+- fix installed versions of lego per distribution
 
 ## 0.3.1
 ### Improvements
@@ -77,7 +92,7 @@
 
 ### Improvements
 - Better check for specific domain certificate, issue each domain severalty.
-- Remove config option `interval` in favor of running in specific time. 
+- Remove config option `interval` in favor of running in specific time.
 - Change port for the `http challenge` from `80` to high port `8091` to free port `80` for other services.
 - Change default renew time to `30` days to reduce the renew frequency
 
